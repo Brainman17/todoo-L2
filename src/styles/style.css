@@ -1,0 +1,425 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", Arial, sans-serif;
+  font-weight: 400;
+  background-color: #e3f2fd;
+}
+
+.container {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 25px;
+  margin: 85px auto 0;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field {
+  position: relative;
+  width: 100%;
+}
+
+.inputs-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+#datetimePicker {
+  width: 100%;
+}
+
+#datetimePicker:focus {
+  border-color: rgb(40, 124, 155);
+}
+
+#taskName {
+  margin-right: 10px;
+}
+
+#taskName:focus {
+  border-color: rgb(40, 124, 155);
+}
+
+.input-field input {
+  height: 10px;
+  margin-bottom: 10px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 18px 45px 18px 15px;
+  font-size: 16px;
+  font-family: "Manrope", Arial, sans-serif;
+  font-weight: 500;
+}
+
+.input-field textarea {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 18px 45px 18px 15px;
+  font-size: 14px;
+}
+
+.input-field textarea:focus {
+  border-color: rgb(40, 124, 155);
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+  resize: none;
+}
+
+.uil-notes {
+  position: absolute;
+  top: 45%;
+  right: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 24px;
+  color: #707070;
+}
+
+.input-field textarea:focus ~ .note-icon {
+  color: rgb(40, 124, 155);
+}
+
+.todoList {
+  max-height: 380px;
+  overflow: auto;
+  margin-top: 20px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  background-color: #f2f2f2;
+  padding: 20px 15px;
+  border-radius: 8px;
+  position: relative;
+  margin-top: 10px;
+  margin-right: 20px;
+  cursor: auto;
+}
+
+.list input {
+  height: 16px;
+  min-width: 16px;
+  accent-color: rgb(40, 124, 155);
+  cursor: pointer;
+}
+
+.list:hover i {
+  display: inline-flex;
+}
+
+.uil-trash {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: rgb(40, 124, 155);
+  font-size: 20px;
+  padding: 5px;
+  display: none;
+  opacity: 0.72;
+  cursor: pointer;
+}
+
+.uil-trash:hover {
+  opacity: 1;
+}
+
+.task {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.pending-tasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.pending-tasks span {
+  color: #333;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.saveBtn {
+  padding: 11px 34px;
+  outline: none;
+  border: none;
+  background-color: rgb(40, 124, 155);
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 100%;
+}
+
+.saveBtn:hover {
+  opacity: 0.8;
+}
+
+.saveBtn:disabled {
+  background-color: #727279;
+}
+
+.clear-all {
+  padding: 6px 14px;
+  outline: none;
+  border: none;
+  background-color: #4070f4;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clear-all:hover {
+  opacity: 0.8;
+}
+
+.clear-all:disabled {
+  background-color: #727279;
+}
+
+.date {
+  font-weight: 500;
+  margin: 3px 0;
+  font-size: 14px;
+}
+
+.span-wrap {
+  display: flex;
+  flex-direction: column;
+  margin: 0 30px 0 15px;
+}
+
+.span-wrap span {
+  font-weight: 500;
+  margin: 3px 0;
+  font-size: 14px;
+}
+
+.description {
+  font-size: 12px !important;
+  font-weight: 300 !important;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid rgb(40, 124, 155);
+  border-radius: 8px;
+}
+
+.sortPopup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid rgb(40, 124, 155);
+  border-radius: 8px;
+  width: 400px;
+  height: max-content;
+  position: relative;
+}
+
+.sortItem {
+  list-style-type: none;
+  margin-right: 10px;
+  margin-top: 6px;
+}
+
+.timePopup {
+  margin-left: 10px;
+}
+
+.cross {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.cross img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.cross img:hover {
+  opacity: 0.7;
+}
+
+.popup textarea {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 18px 45px 18px 15px;
+  font-size: 14px;
+}
+
+.saveText {
+  padding: 6px 14px;
+  margin-top: 6px;
+  outline: none;
+  border: none;
+  background-color: rgb(40, 124, 155);
+  color: #fff;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 100%;
+}
+
+.saveText:hover {
+  opacity: 0.8;
+}
+
+.popupDescription {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid rgb(40, 124, 155);
+  border-radius: 8px;
+}
+
+.popupDate {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid rgb(40, 124, 155);
+  border-radius: 8px;
+}
+
+.popupDate input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 18px 45px 18px 15px;
+  font-size: 14px;
+}
+
+.popupDescription textarea {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 18px 45px 18px 15px;
+  font-size: 14px;
+}
+
+.popupDateBtn {
+  padding: 6px 14px;
+  margin-top: 6px;
+  outline: none;
+  border: none;
+  background-color: rgb(40, 124, 155);
+  color: #fff;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 100%;
+}
+
+.saveDescriptionBtn {
+  padding: 6px 14px;
+  margin-top: 6px;
+  outline: none;
+  border: none;
+  background-color: rgb(40, 124, 155);
+  color: #fff;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 100%;
+}
+
+.popupDateBtn:hover {
+  opacity: 0.8;
+}
+
+.saveDescriptionBtn:hover {
+  opacity: 0.8;
+}
+
+.sortByDate {
+  background-color: transparent;
+  color: rgb(40, 124, 155);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px dashed rgb(40, 124, 155);
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  padding-bottom: 2px;
+}
+
+.sortByDate:hover {
+  opacity: 0.75;
+}
+
+.sortList {
+  display: flex;
+  flex-direction: column;
+}
+
+#notification {
+  display: none;
+  background-color: rgb(192, 58, 58);
+  align-items: center;
+  color: #fff;
+  padding: 10px 100px;
+  position: fixed;
+  top: 20px;
+  right: 40%;
+  border-radius: 8px;
+}

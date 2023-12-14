@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todoooooo</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-field">
+        <div class="wrap">
+          <input type="text" placeholder="Enter the task name" id="taskName" />
+          <button class="saveBtn">Add a task</button>
+        </div>
+        <textarea
+          placeholder="Enter the task description (optional)"
+        ></textarea>
+        <i class="uil uil-notes note-icon"></i>
+        <input type="datetime-local" id="datetimePicker" />
+      </div>
+      <button class="sortByDate">Sort by date</button>
+
+      <ul class="todoList"></ul>
+
+      <div id="popup" class="popup">
+        <textarea id="editText"></textarea>
+        <button id="saveText" class="saveText">Save</button>
+      </div>
+
+      <div id="popupDescription" class="popupDescription">
+        <textarea id="editDescription"></textarea>
+        <button id="saveDescriptionBtn" class="saveDescriptionBtn">Save</button>
+      </div>
+
+      <div id="popupDate" class="popupDate">
+        <input type="datetime-local" id="editDate" />
+        <button id="popupDateBtn" class="popupDateBtn">Save</button>
+      </div>
+
+      <div id="sortPopup" class="sortPopup">
+        <ul class="sortList"></ul>
+        <button class="cross">
+          <img src="./images/cross.svg" alt="cross" />
+        </button>
+      </div>
+
+      <div class="pending-tasks">
+        <span>You have <span class="pending-num">no </span> tasks</span>
+        <button class="clear-all">Clear All</button>
+      </div>
+    </div>
+
+    <div id="notification">
+      there are <span class="notification__hours"></span> days left
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
